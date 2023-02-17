@@ -34,4 +34,4 @@ prob.Constraints.c3 = 3*x1 + 2*x2 <= 18;
 % converts the problem into minimizing the negative of the objective
 % function, and it DOES apply the negation needed to convert the result
 % back.
-[x, fval, exitflag, output, lambda] = solve(prob);
+[x_sol, fval, exitflag, output, lambda] = solve(prob);

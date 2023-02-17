@@ -17,7 +17,7 @@ A = [ 1  0
 b = [4 12 18];
 
 % Solve
-[x, fval, exitflag, output, lambda] = linprog(f, A, b);
+[x_sol, fval, exitflag, output, lambda] = linprog(f, A, b);
 
 % Note that the resulting fval is the negative of the value
 % we're actually, looking for,
