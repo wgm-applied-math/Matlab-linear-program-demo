@@ -2,8 +2,8 @@
 % problem style
 
 % Maximize Z = 3 x1 + 5 x2
-x = optimvar('x', 2, 'LowerBound', 0);
-prob = optimproblem('Objective', [3 5] * x , 'ObjectiveSense', 'max');
+x = optimvar('x', 2, LowerBound=0);
+prob = optimproblem(Objective=[3 5] * x , ObjectiveSense='max');
 
 % Subject to
 %   x1        <= 4

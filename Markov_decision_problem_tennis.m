@@ -25,13 +25,13 @@ p = cat(3, p_ace, p_lob);
 
 % Unknonws:
 % y_{ik} = probability state is i and decision k is made
-y = optimvar('y', size(cost), 'LowerBound', 0);
+y = optimvar('y', size(cost), LowerBound=0);
 
 
 % Objective:
 % Minimize long term average cost per time step
 Z = sum(cost .* y, 'all');
-prob = optimproblem('Objective', Z, 'ObjectiveSense', 'min');
+prob = optimproblem(Objective=Z, ObjectiveSense='min');
 
 % Constraints:
 
