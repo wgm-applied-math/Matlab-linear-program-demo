@@ -42,7 +42,7 @@ prob.Constraints.PM = sum(y, 'all') == 1;
 prob.Constraints.Transition = [];
 for j = 1:size(y, 1)
     lhs = sum(y(j,:));
-    for k = 1:size(p, 3)
+    for k = 1:size(y, 2)
         for i = 1:size(y, 1)
             lhs = lhs - y(i,k) * p(i, j, k);
         end
