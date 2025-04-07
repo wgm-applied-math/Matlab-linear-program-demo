@@ -1,4 +1,4 @@
-% This is the Markov decision process from chapter 19
+%% Markov decision process - tennis problem 19.2-5 & 19.3-4
 
 % States:
 % i=1: 0, before the first serve
