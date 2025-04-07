@@ -1,4 +1,4 @@
-% This is the Markov decision process from chapter 19
+%% Markov decision process - machine example from chapter 19
 
 % States:
 % i=1: machine in state 0, good as new
@@ -70,14 +70,7 @@ for j = 1:size(y, 1)
 end
 
 % Disallowed decisions
-prob.Constraints.Disallowed = [];
-for i = 1:size(y, 1)
-    for k = 1:size(y, 2)
-        if ~allowed(i, k)
-            prob.Constraints.Disallowed(end+1) = y(i,k) == 0;
-        end
-    end
-end
+prob.Constraints.Disallowed = (~allowed .* y == 0)
 
 [y_sol, fval, exitflag, output, lambda] = solve(prob);
 
