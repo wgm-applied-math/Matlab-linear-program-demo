@@ -6,7 +6,7 @@
 % i=3: machine in state 2, major deterioration
 % i=4: machine in state 3, inoperable
 
-% Decisions:
+% Allowed decisions:
 % k=1: do nothing for machine in state 0, 1, 2
 % k=2: overhaul machine in state 2, returns it to state 1
 % k=3: replace machine in state 3, returns it to state 0
@@ -70,7 +70,7 @@ for j = 1:size(y, 1)
 end
 
 % Disallowed decisions
-prob.Constraints.Disallowed = (~allowed .* y == 0)
+prob.Constraints.Disallowed = (~allowed .* y == 0);
 
 [y_sol, fval, exitflag, output, lambda] = solve(prob);
 
