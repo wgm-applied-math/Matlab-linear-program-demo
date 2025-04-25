@@ -79,3 +79,23 @@ prob.Constraints.Disallowed = (~allowed .* y == 0);
 D_sol = y_sol.y ./ sum(y_sol.y, 2);
 
 % And this agrees with what's in the book.
+
+
+%% Assemble overall transition matrix
+
+P_overall = zeros([4, 4]);
+for i = 1:4
+    [one, k] = max(D_sol(i,:));
+    P_overall(i, :) = p(i, :, k);
+end
+
+%% Double check the long-term-average cost
+
+C_col = [ 0 ; 1000 ; 4000 ; 6000 ];
+
+[V, D, W] = eig(P_overall);
+[d, ind] = sort(diag(abs(D)));
+w_unscaled = W(:,ind(end))';
+w = w_unscaled / sum(w_unscaled);
+
+ltavgCost = w * C_col;
